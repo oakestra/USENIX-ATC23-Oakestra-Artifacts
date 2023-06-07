@@ -1,5 +1,5 @@
 FROM python:3.10
-LABEL org.opencontainers.image.source https://github.com/oakestra/oakestra
+LABEL org.opencontainers.image.source https://github.com/oakestra/usenix-atc23-oakestra-artifacts
 
 ADD requirements.txt /
 
