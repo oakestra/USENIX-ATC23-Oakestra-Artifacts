@@ -1,0 +1,32 @@
+{
+  "sla_version" : "v2.0",
+  "customerID" : "Admin",
+  "applications" : [
+    {
+      "applicationID" : "",
+      "application_name" : "clientsrvr",
+      "application_namespace" : "test",
+      "application_desc" : "test1 demo",
+      "microservices" : [
+        {
+          "microserviceID": "",
+          "microservice_name": "curl",
+          "microservice_namespace": "test",
+          "virtualization": "container",
+          "environment": ["SERVER_ADDRESS=10.19.1.254:5001"],
+          "memory": 50,
+          "vcpus": 1,
+          "vgpus": 0,
+          "vtpus": 0,
+          "bandwidth_in": 0,
+          "bandwidth_out": 0,
+          "storage": 0,
+          "code": "docker.io/giobart/edgeio-deployment-time-script:deployment-edgeio",
+          "state": "",
+          "port": "80",
+          "added_files": []
+        }
+      ]
+    }
+  ]
+}

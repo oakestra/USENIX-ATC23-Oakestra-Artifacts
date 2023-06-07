@@ -1,0 +1,104 @@
+{
+  "sla_version" : "v2.0",
+  "customerID" : "Admin",
+  "applications" : [
+    {
+      "applicationID" : "",
+      "application_name" : "pipeline",
+      "application_namespace" : "test",
+      "application_desc" : "test7 demo",
+      "microservices" : [
+        {
+          "microserviceID": "",
+          "microservice_name": "tracking",
+          "microservice_namespace": "test",
+          "virtualization": "container",
+          "cmd": ["python3","object_tracking.py","--tracker","kcf","--log-level","DEBUG"],
+          "memory": 100,
+          "vcpus": 1,
+          "vgpus": 0,
+          "vtpus": 0,
+          "bandwidth_in": 0,
+          "bandwidth_out": 0,
+          "storage": 0,
+          "code": "docker.io/sbaeurle/tracking:cpu",
+          "state": "",
+          "added_files": [],
+          "addresses": {
+            "rr_ip": "10.30.31.30"
+          }
+        },
+        {
+          "microserviceID": "",
+          "microservice_name": "aggreg",
+          "microservice_namespace": "test",
+          "cmd": ["python3","video_aggregation.py","--grpc","--video-source","rtsp://10.30.31.34:8554/data/cam1_dataset.mp4","--detector-address","10.30.31.32:8080","--tracker-address","10.30.31.30:8181"],
+          "virtualization": "container",
+          "memory": 100,
+          "vcpus": 1,
+          "vgpus": 0,
+          "vtpus": 0,
+          "bandwidth_in": 0,
+          "bandwidth_out": 0,
+          "storage": 0,
+          "code": "docker.io/sbaeurle/aggregation:cpu",
+          "state": "",
+          "added_files": [],
+          "addresses": {
+            "rr_ip": "10.30.31.31"
+          }
+        },
+        {
+          "microserviceID": "",
+          "microservice_name": "detect",
+          "microservice_namespace": "test",
+          "cmd": [
+            "python3",
+            "object_detection.py",
+            "--config",
+            "models/yolov3/yolov3.cfg",
+            "--model",
+            "models/yolov3/yolov3.weights",
+            "--classes",
+            "models/coco.names",
+            "--tracker-address",
+            "10.30.31.30:8181"
+          ],
+          "virtualization": "container",
+          "memory": 100,
+          "vcpus": 1,
+          "vgpus": 0,
+          "vtpus": 0,
+          "bandwidth_in": 0,
+          "bandwidth_out": 0,
+          "storage": 0,
+          "code": "docker.io/sbaeurle/detection:cpu-fix",
+          "state": "",
+          "added_files": [],
+          "addresses": {
+            "rr_ip": "10.30.31.32"
+          }
+        },
+        {
+          "microserviceID": "",
+          "microservice_name": "source",
+          "microservice_namespace": "test",
+          "virtualization": "container",
+          "memory": 100,
+          "vcpus": 1,
+          "vgpus": 0,
+          "vtpus": 0,
+          "bandwidth_in": 0,
+          "bandwidth_out": 0,
+          "storage": 0,
+          "code": "docker.io/sbaeurle/source:cpu-dataset-included",
+          "state": "",
+          "added_files": [],
+          "addresses": {
+            "rr_ip": "10.30.31.34"
+          }
+        }
+      ]
+    }
+  ]
+}

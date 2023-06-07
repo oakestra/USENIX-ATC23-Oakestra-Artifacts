@@ -1,0 +1,52 @@
+{
+  "sla_version" : "v2.0",
+  "customerID" : "Admin",
+  "applications" : [
+    {
+      "applicationID" : "",
+      "application_name" : "nettime",
+      "application_namespace" : "test",
+      "application_desc" : "test2 demo",
+      "microservices" : [
+        {
+          "microserviceID": "",
+          "microservice_name": "client",
+          "microservice_namespace": "test",
+          "virtualization": "container",
+          "memory": 50,
+          "vcpus": 1,
+          "vgpus": 0,
+          "vtpus": 0,
+          "bandwidth_in": 0,
+          "bandwidth_out": 0,
+          "storage": 0,
+          "port": "50002:5002/tcp",
+          "code": "docker.io/giobart/edgeio-deployment-time-script:nettime",
+          "state": "",
+          "added_files": []
+        },
+        {
+          "microserviceID": "",
+          "microservice_name": "nginx",
+          "microservice_namespace": "test",
+          "virtualization": "container",
+          "cmd": [],
+          "memory": 50,
+          "vcpus": 1,
+          "vgpus": 0,
+          "vtpus": 0,
+          "bandwidth_in": 0,
+          "bandwidth_out": 0,
+          "storage": 0,
+          "code": "docker.io/library/nginx:latest",
+          "state": "",
+          "port": "6080:80/tcp",
+          "addresses": {
+            "rr_ip": "10.30.30.30"
+          },
+          "added_files": []
+        }
+      ]
+    }
+  ]
+}

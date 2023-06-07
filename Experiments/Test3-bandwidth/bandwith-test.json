@@ -1,0 +1,51 @@
+{
+  "sla_version" : "v2.0",
+  "customerID" : "Admin",
+  "applications" : [
+    {
+      "applicationID" : "",
+      "application_name" : "iperf",
+      "application_namespace" : "test",
+      "application_desc" : "test2 demo",
+      "microservices" : [
+        {
+          "microserviceID": "",
+          "microservice_name": "server",
+          "microservice_namespace": "test",
+          "virtualization": "container",
+          "cmd": ["iperf3","-s","-B","0.0.0.0","-V","-i","1"],
+          "memory": 50,
+          "vcpus": 1,
+          "vgpus": 0,
+          "vtpus": 0,
+          "bandwidth_in": 0,
+          "bandwidth_out": 0,
+          "storage": 0,
+          "addresses": {
+              "rr_ip": "10.30.35.35"
+          },
+          "code": "quay.io/wcaban/net-toolbox:latest",
+          "state": "",
+          "added_files": []
+        },
+        {
+          "microserviceID": "",
+          "microservice_name": "client",
+          "microservice_namespace": "test",
+          "cmd": [ "sh", "-c", "while true; do iperf3 -c 10.30.35.35 -n 100M -i 1 -V; done"],
+          "virtualization": "container",
+          "memory": 50,
+          "vcpus": 1,
+          "vgpus": 0,
+          "vtpus": 0,
+          "bandwidth_in": 0,
+          "bandwidth_out": 0,
+          "storage": 0,
+          "code": "quay.io/wcaban/net-toolbox:latest",
+          "state": "",
+          "added_files": []
+        }
+      ]
+    }
+  ]
+}
