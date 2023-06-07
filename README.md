@@ -1,7 +1,7 @@
 ![Oakestra](res/oakestra-white.png)
 
-#This is a fork of the main repository oakestra/oakestra
-#This fork is for ATC '23 artifact reproducibility only 
+## This is a fork of the main repository oakestra/oakestra
+## This fork is for ATC '23 artifact reproducibility only 
 
 # How to create a development cluster
 ## Deploy a Root Orchestrator 
