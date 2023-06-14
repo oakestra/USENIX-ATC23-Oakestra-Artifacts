@@ -4,7 +4,7 @@
 
 # Oakestra USENIX ATC 2023 Artifacts 
 
-This repository contains the artifacts, including experiments and graphs, for the paper:
+This repository contains the artifacts for the paper:
 
 ### Oakestra: A Lightweight Hierarchical Orchestration Framework for Edge Computing
 
@@ -24,6 +24,22 @@ publisher = {USENIX Association},
 month = jul,
 }
 ```
+
+## Artifact Structure
+
+There are a total of three artifact repositories for reproducing the experiments and results in the paper. 
+
+1. [**This**] [Orchetrator repository](https://github.com/oakestra/USENIX-ATC23-Oakestra-Artifacts/tree/main/Experiments): The  repository contains the Root & Cluster orchestrators   folders, as well as the Node Engine source code for the worker node.
+
+2. [Network repository](https://github.com/oakestra/USENIX-ATC23-Oakestra-net-Artifacts): This repository contains the  Root, Cluster, and Worker network components.
+
+3. [Experiments repository](https://github.com/oakestra/USENIX-ATC23-Oakestra-Artifacts/tree/main/Experiments): This repository includes the setup instructions to create your first Oakestra infrastructure and a set of scripts to automate the results collection procedure and reproducing our results.
+
+### Q. I just want to recreate the experiments in the paper. What should I do?
+
+We have created a detailed `README` and `getting-started` guide that provides step-by-step instructions which you can find [here](https://github.com/oakestra/USENIX-ATC23-Oakestra-Artifacts/blob/main/Experiments/README.pdf).
+
+---
 
 # How to create a development cluster
 ## Deploy a Root Orchestrator 
