@@ -2,7 +2,28 @@
 
 [![](https://img.shields.io/badge/USENIX%20ATC%20'23-paper-limegreen)](https://www.oakestra.io/pubs/Oakestra-ATC2023.pdf)
 
-## Oakestra USENIX ATC 2023 Artifacts 
+# Oakestra USENIX ATC 2023 Artifacts 
+
+This repository contains the artifacts, including experiments and graphs, for the paper:
+
+### Oakestra: A Lightweight Hierarchical Orchestration Framework for Edge Computing
+
+> **Abstract:** Edge computing seeks to enable applications with strict latency requirements by utilizing resources deployed in diverse, dynamic, and possibly constrained environments closer to the users. Existing state-of-the-art orchestration frameworks(e.g. Kubernetes) perform poorly at the edge since they were designed for reliable, low latency, high bandwidth cloud environments. We present Oakestra, a hierarchical, lightweight, flexible, and scalable orchestration framework for edge computing. Through its novel federated three-tier resource management, delegated task scheduling, and semantic overlay networking, Oakestra can flexibly consolidate multiple infrastructure providers and support applications over dynamic variations at the edge. Our comprehensive evaluation against the state-of-the-art demonstrates the significant benefits of Oakestra as it achieves an approximately tenfold reduction in resource usage through reduced management overhead and 10% application performance improvement due to lightweight operation over constrained hardware.
+
+[Oakestra](https://oakestra.io) is an open-source project. Most of the code used for this paper is upstream, or is in the process of being upstreamed.
+
+```
+@inproceedings {Bartolomeo2023,
+author = {Bartolomeo, Giovanni and Yosofie, Mehdi and Bäurle, Simon and Haluszczynski, Oliver and Mohan, Nitinder and Ott, Jörg},
+title = {{Oakestra}: A Lightweight Hierarchical Orchestration Framework for Edge Computing},
+booktitle = {2023 USENIX Annual Technical Conference (USENIX ATC 23)},
+year = {2023},
+address = {Boston, MA},
+url = {https://www.usenix.org/conference/atc23/presentation/bartolomeo},
+publisher = {USENIX Association},
+month = jul,
+}
+```
 
 # How to create a development cluster
 ## Deploy a Root Orchestrator 
