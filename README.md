@@ -1,7 +1,8 @@
 ![Oakestra](res/oakestra-white.png)
 
-## This is a fork of the main repository oakestra/oakestra
-## This fork is for ATC '23 artifact reproducibility only 
+[![](https://img.shields.io/badge/USENIX%20ATC%20'23-paper-limegreen)](https://www.oakestra.io/pubs/Oakestra-ATC2023.pdf)
+
+## Oakestra USENIX ATC 2023 Artifacts 
 
 # How to create a development cluster
 ## Deploy a Root Orchestrator 
