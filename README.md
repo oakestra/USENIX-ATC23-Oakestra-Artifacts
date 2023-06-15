@@ -1,4 +1,4 @@
-![Oakestra](res/oakestra-white.png)
+![Oakestra](https://github.com/oakestra/oakestra/raw/develop/res/oakestra-white.png)
 
 [![](https://img.shields.io/badge/USENIX%20ATC%20'23-paper-limegreen)](https://www.oakestra.io/pubs/Oakestra-ATC2023.pdf)
 [![](https://img.shields.io/badge/wiki-website-blue)](https://www.oakestra.io/docs/)
