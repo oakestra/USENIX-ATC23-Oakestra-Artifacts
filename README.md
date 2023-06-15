@@ -111,8 +111,6 @@ This is a single cluster setup but with the separation of the Root and Cluster c
 
 We have created a detailed `README` and `getting-started` guide that provides step-by-step instructions which you can find [here](https://github.com/oakestra/USENIX-ATC23-Oakestra-Artifacts/blob/main/Experiments/README.pdf). Please follow the instructions provided in _Section 4_ of the `README` file.
 
-
-
 ## Networking 
 
 Please see [Oakestra Net Artficat Repository](https://github.com/oakestra/USENIX-ATC23-Oakestra-net-Artifacts) for setting up networking.
@@ -122,7 +120,22 @@ Please see [Oakestra Net Artficat Repository](https://github.com/oakestra/USENIX
 To make your life easier you can run the Oakestra front-end.
 Please check the [Dashboard](https://github.com/oakestra/dashboard) repository for more information.
 
+## Reproducing Experiments
+
+Please see `Experiments/` folder for the experiments artifacts. We provide the scripts that we used to obtain the results in our paper using Oakestra. The summary of our tests, their setup time and estimated runtime is as follows.
+
+| **Test ID** | **Test Description**     | **Setup Time** | **Est. Runtime** |
+|-------------|--------------------------|----------------|------------------|
+| Test 1      | Deployment Time          | 0h 05m         | 0h 05m           |
+| Test 2      | Network Overhead         | 0h 05m         | 0h 02m           |
+| Test 3      | Network Bandwidth        | 0h 05m         | 0h 05m           |
+| Test 4      | Control Messages         | 0h 01m         | 0h 05m           |
+| Test 5      | Stress Test              | 0h 05m         | 0h 05m           |
+| Test 6      | Video Analytics Pipeline | 0h 05m         | 0h 10m           |
+
+Please follow the instructions provided in _Section 5_ of the `README` file [here](https://github.com/oakestra/USENIX-ATC23-Oakestra-Artifacts/blob/main/Experiments/README.pdf).
+
 # Beyond the paper
 
-This repository is recreating our USENIX ATC artifacts and is, therefore, out-of-sync of the main Oakestra development. Please see the `main` [Oakestra](https://github.com/oakestra/oakestra) for the latest features.
+This repository is recreating our USENIX ATC artifacts and is, therefore, out-of-sync of the main Oakestra development. Please see the `main` branch of [Oakestra](https://github.com/oakestra/oakestra) for the latest features. Also, check out our [detailed wiki](https://www.oakestra.io/docs/) for more information, and join our community on [Discord](https://discord.gg/7F8EhYCJDf)https://discord.gg/7F8EhYCJDf.
 
