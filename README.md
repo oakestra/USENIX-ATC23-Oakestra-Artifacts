@@ -8,7 +8,6 @@
 <img width="40%" src="https://raw.githubusercontent.com/oakestra/oakestra.github.io/69dc5022f80ec4e9b90254ce69b12f05aa5f9d0d/pubs/badges/badges.png" align="right" />
 
 # Oakestra USENIX ATC 2023 Artifacts 
-## Orchestrator Repository
 
 This repository contains the artifacts for the paper:
 
@@ -35,11 +34,11 @@ month = jul,
 
 There are a total of three artifact repositories for reproducing the experiments and results in the paper. 
 
-1. [**This**] [Orchetrator repository](https://github.com/oakestra/USENIX-ATC23-Oakestra-Artifacts/tree/main/Experiments): The  repository contains the Root & Cluster orchestrators   folders, as well as the Node Engine source code for the worker node.
+1. [**This**] [Main repository](https://github.com/oakestra/USENIX-ATC23-Oakestra-Artifacts/tree/main/Experiments): The repository contains the Root & Cluster orchestrators folders, as well as the Node Engine source code for the worker node.
 
 2. [Network repository](https://github.com/oakestra/USENIX-ATC23-Oakestra-net-Artifacts): This repository contains the  Root, Cluster, and Worker network components.
 
-3. [Experiments repository](https://github.com/oakestra/USENIX-ATC23-Oakestra-Artifacts/tree/main/Experiments): This repository includes the setup instructions to create your first Oakestra infrastructure and a set of scripts to automate the results collection procedure and reproducing our results.
+3. [Experiments repository](https://github.com/oakestra/USENIX-ATC23-Oakestra-Artifacts/tree/main/Experiments): This repository is a sub-directory within this repo at `Experiments/` and includes the setup instructions to create your first Oakestra infrastructure and a set of scripts to automate the results collection procedure and reproducing our results.
 
 4. [_Optional_] [Dashboard](https://github.com/oakestra/dashboard): The repository contains a front-end application that can be used to graphically interact with the platform. Its optional but gives a nice web-based GUI to Oakestra
 
@@ -55,12 +54,7 @@ A. This repository is recreating our USENIX ATC artifacts and is, therefore, out
 
 ---
 
-
-## What is inside this repository?
-
-`system-manager-python/` and `cloud_scheduler/` contain the  `System Manager` and the `Cloud Scheduler` source code, respectively. Similarly, inside the `Cluster Orchestrator` folder, we find the source of the `cluster-manager/` and the `cluster-scheduler/`. Finally, the `go-node-engine/` contains the implementation of the `Node Engine`. The root and cluster components are implemented using `Python`, while the Node Engine is implemented in `Go` for easy integration with the runtime environments and better performance. 
-
-Both cluster and root contain a `docker-compose` file for simplifying the build and run process. 
+# Getting Started
 
 ## Set up your cluster
 
@@ -77,7 +71,7 @@ docker-compose up --build
 
 The following ports are exposed:
 
-- Port 80 - Grafana Dashboard (It can be used to monitor the clsuter status)
+- Port 80 - Grafana Dashboard (It can be used to monitor the cluster status)
 - Port 10000 - System Manager (It needs to be accessible from the Cluster Orchestrator)
 
 
@@ -110,8 +104,8 @@ The following ports are exposed:
 
 *Requirements*
 - Linux OS with the following packages installed (Ubuntu and many other distributions natively supports them)
-  - iptable
-  - ip utils
+  - `iptable`
+  - `ip utils`
 - port 50103 available
 
 1) First you need to install the go Node Engine.
@@ -122,10 +116,12 @@ wget -c https://github.com/oakestra/oakestra/releases/download/v0.4.2/NodeEngine
 ```
 wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.4.2/NetManager_$(dpkg --print-architecture).tar.gz && tar -xzf NetManager_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && ./install.sh $(dpkg --print-architecture)
 ```
-2.1) Configure the NetManager config file accordingly to what stated in the [NetManager Readme](https://github.com/oakestra/oakestra-net/blob/main/node-net-manager/README.md). Leave the ClusterMqttPort value to the default 10003 value.  
-2.2) Run the NetManager using `sudo NetManager -p 6000`
-3) Run the node engine: `sudo NodeEngine -a <cluster orchestrator address> -p <cluster orhcestrator port e.g. 10100> -n 6000`. If you specifcy the flag `-n 6000`, the NodeEngine expects a running NetManager component on port 6000. If this is the case, the node will start in overlay mode, enabling the networking across the deployed application. In order to do so, you need to have the Oakestra NetManager component installed on your worker node ([OakestraNet/Node_net_manager](https://github.com/oakestra/oakestra-net/tree/main/node-net-manager)). If you don't which to enable the networking, simply avoid specifying the flag -n. Use NodeEngine -h for further details
-3.1) As an alternative you can run the development version of the NodeEngine moving inside `go_node_engine` and running `sudo go NodeEngine -a <cluster orchestrator address> -p <cluster orhcestrator port e.g. 10100> -n <net manager port>`
+  2.1) Configure the NetManager config file accordingly to what stated in the [NetManager Readme](https://github.com/oakestra/oakestra-net/blob/main/node-net-manager/README.md). Leave the `ClusterMqttPort` value to the default 10003 value.  
+
+  2.2) Run the NetManager using `sudo NetManager -p 6000`
+
+3) Run the node engine: `sudo NodeEngine -a <cluster orchestrator address> -p <cluster orhcestrator port e.g. 10100> -n 6000`. If you specifcy the flag `-n 6000`, the NodeEngine expects a running NetManager component on port 6000. If this is the case, the node will start in overlay mode, enabling the networking across the deployed application. In order to do so, you need to have the Oakestra NetManager component installed on your worker node ([OakestraNet/Node_net_manager](https://github.com/oakestra/oakestra-net/tree/main/node-net-manager)). If you don't which to enable the networking, simply avoid specifying the flag `-n`. Use `NodeEngine -h` for further details
+3.1) As an alternative you can run the development version of the NodeEngine moving inside `go_node_engine` and running `sudo go NodeEngine -a <cluster orchestrator address> -p <cluster orchestrator port e.g. 10100> -n <net manager port>`
 
 ## Use the APIs to deploy a new application
 
@@ -244,20 +240,28 @@ connect to `<root_orch_ip>:10000/api/docs`
 Authenticate using the following procedure:
 
 1. locate the login method and use the try-out button
-![try-login](res/login-try.png)
+   
+   <img width="70%" src="res/login-try.png" align="center" />
+
 2. Use the default Admin credentials to login
-![execute-login](res/login-execute.png)
+
+   <img width="70%" src="res/login-execute.png" align="center" />
+   
 3. Copy the result login token
-![token-login](res/login-token-copy.png)
+
+<img width="70%" src="res/login-token-copy.png" align="center" />
+
 4. Go to the top of the page and authenticate with this token
-![auth-login](res/authorize.png)
-![auth2-login](res/authorize-2.png)
+
+<img width="70%" src="res/authorize.png" align="center" />
+<img width="70%" src="res/authorize-2.png" align="center" />
 
 ### Register an application and the services
 After you authenticate with the login function, you can try out to deploy the first application. 
 
-1. Upload the deployment description to the system. You can try using the deployment descriptor above.
-![post app](res/post-app.png)
+1. Upload the deployment description to the system. You can try using the deployment descriptor above if you like.
+
+<img width="70%" src="res/post-app.png" align="center" />
 
 The response contains the Application id and the id for all the application's services. Now the application and the services are registered to the platform. It's time to deploy the service instances! 
 
