@@ -1,6 +1,10 @@
 ![Oakestra](res/oakestra-white.png)
 
 [![](https://img.shields.io/badge/USENIX%20ATC%20'23-paper-limegreen)](https://www.oakestra.io/pubs/Oakestra-ATC2023.pdf)
+[![](https://img.shields.io/badge/wiki-website-blue)](https://www.oakestra.io/docs/)
+[![](https://img.shields.io/badge/Discord-%235865F2.svg?&logo=discord&logoColor=white)](https://discord.gg/7F8EhYCJDf)
+
+
 
 # Oakestra USENIX ATC 2023 Artifacts 
 ## Orchestrator Repository
@@ -36,18 +40,28 @@ There are a total of three artifact repositories for reproducing the experiments
 
 3. [Experiments repository](https://github.com/oakestra/USENIX-ATC23-Oakestra-Artifacts/tree/main/Experiments): This repository includes the setup instructions to create your first Oakestra infrastructure and a set of scripts to automate the results collection procedure and reproducing our results.
 
+4. [_Optional_] [Dashboard](https://github.com/oakestra/dashboard): The repository contains a front-end application that can be used to graphically interact with the platform. Its optional but gives a nice web-based GUI to Oakestra
+
 ### Q. I want to recreate the experiments in the paper. What should I do?
 
-We have created a detailed `README` and `getting-started` guide that provides step-by-step instructions which you can find [here](https://github.com/oakestra/USENIX-ATC23-Oakestra-Artifacts/blob/main/Experiments/README.pdf).
+A. We have created a detailed `README` and `getting-started` guide that provides step-by-step instructions which you can find [here](https://github.com/oakestra/USENIX-ATC23-Oakestra-Artifacts/blob/main/Experiments/README.pdf).
 
 > The rest of the repository will detail how to set up the Oakestra orchestrators. You can just follow these steps or take a look at our README file for instructions.
 
 ### Q. I just want to try out Oakestra. Should I continue with this repo?
-This repository is recreating our USENIX ATC artifacts and is, therefore, out-of-sync of the main Oakestra development. Please see the `main` [Oakestra](https://github.com/oakestra/oakestra) for latest features.
+
+A. This repository is recreating our USENIX ATC artifacts and is, therefore, out-of-sync of the main Oakestra development. Please see the `main` [Oakestra](https://github.com/oakestra/oakestra) for the latest features.
 
 ---
 
-## Create a development cluster
+
+## What is inside this repository?
+
+`system-manager-python/` and `cloud_scheduler/` contain the  `System Manager` and the `Cloud Scheduler` source code, respectively. Similarly, inside the `Cluster Orchestrator` folder, we find the source of the `cluster-manager/` and the `cluster-scheduler/`. Finally, the `go-node-engine/` contains the implementation of the `Node Engine`. The root and cluster components are implemented using `Python`, while the Node Engine is implemented in `Go` for easy integration with the runtime environments and better performance. 
+
+Both cluster and root contain a `docker-compose` file for simplifying the build and run process. 
+
+## Set up your cluster
 
 We will first create a development cluster in your infrastructure.
 
@@ -274,3 +288,7 @@ Please see [Oakestra Net Artficat Repository](https://github.com/oakestra/USENIX
 
 To make your life easier you can run the Oakestra front-end.
 Please check the [Dashboard](https://github.com/oakestra/dashboard) repository for more information.
+
+# Beyond the paper
+
+
