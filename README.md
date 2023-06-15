@@ -5,7 +5,7 @@
 [![](https://img.shields.io/badge/Discord-%235865F2.svg?&logo=discord&logoColor=white)](https://discord.gg/7F8EhYCJDf)
 
 
-<img width="35%" src="https://raw.githubusercontent.com/oakestra/oakestra.github.io/69dc5022f80ec4e9b90254ce69b12f05aa5f9d0d/pubs/badges/badges.png" align="right" />
+<img width="40%" src="https://raw.githubusercontent.com/oakestra/oakestra.github.io/69dc5022f80ec4e9b90254ce69b12f05aa5f9d0d/pubs/badges/badges.png" align="right" />
 
 # Oakestra USENIX ATC 2023 Artifacts 
 ## Orchestrator Repository
