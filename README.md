@@ -35,14 +35,22 @@ There are a total of three artifact repositories for reproducing the experiments
 
 3. [Experiments repository](https://github.com/oakestra/USENIX-ATC23-Oakestra-Artifacts/tree/main/Experiments): This repository includes the setup instructions to create your first Oakestra infrastructure and a set of scripts to automate the results collection procedure and reproducing our results.
 
-### Q. I just want to recreate the experiments in the paper. What should I do?
+### Q. I want to recreate the experiments in the paper. What should I do?
 
 We have created a detailed `README` and `getting-started` guide that provides step-by-step instructions which you can find [here](https://github.com/oakestra/USENIX-ATC23-Oakestra-Artifacts/blob/main/Experiments/README.pdf).
 
+> The rest of the repository will detail how to set up the Oakestra orchestrators. You can just follow these steps or take a look at our README file for instructions.
+
+### Q. I just want to try out Oakestra. Should I continue with this repo?
+
+This repository is recreating our USENIX ATC artifacts and is, therefore, out-of-sync of the main Oakestra development. Please see the `main` [Oakestra](https://github.com/oakestra/oakestra) for latest features.
 ---
 
-# How to create a development cluster
-## Deploy a Root Orchestrator 
+## Create a development cluster
+
+We will first create a development cluster in your infrastructure.
+
+### Deploy a Root Orchestrator 
 
 On a Linux machine with public IP address or DNS name, first install Docker and Docker-compose. Then, run the following commands to set up the Root Orchestrator components. 
 
@@ -57,7 +65,7 @@ The following ports are exposed:
 - Port 10000 - System Manager (It needs to be accessible from the Cluster Orchestrator)
 
 
-## Deploy one or more Cluster Orchestrator(s)
+### Deploy one or more Cluster Orchestrator(s)
 
 For each one of the cluster orchestrator that needs to be deployed 
 
@@ -82,7 +90,7 @@ The following ports are exposed:
 
 - 10100 Cluster Manager (needs to be accessible by the Node Engine)
 
-## Add worker nodes (run Node Engine)
+### Add worker nodes (run Node Engine)
 
 *Requirements*
 - Linux OS with the following packages installed (Ubuntu and many other distributions natively supports them)
@@ -103,9 +111,9 @@ wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.4.2/NetMan
 3) Run the node engine: `sudo NodeEngine -a <cluster orchestrator address> -p <cluster orhcestrator port e.g. 10100> -n 6000`. If you specifcy the flag `-n 6000`, the NodeEngine expects a running NetManager component on port 6000. If this is the case, the node will start in overlay mode, enabling the networking across the deployed application. In order to do so, you need to have the Oakestra NetManager component installed on your worker node ([OakestraNet/Node_net_manager](https://github.com/oakestra/oakestra-net/tree/main/node-net-manager)). If you don't which to enable the networking, simply avoid specifying the flag -n. Use NodeEngine -h for further details
 3.1) As an alternative you can run the development version of the NodeEngine moving inside `go_node_engine` and running `sudo go NodeEngine -a <cluster orchestrator address> -p <cluster orhcestrator port e.g. 10100> -n <net manager port>`
 
-# Use the APIs to deploy a new application
+## Use the APIs to deploy a new application
 
-## Deployment descriptor
+### Deployment descriptor
 
 In order to deploy a container a deployment descriptor must be passed to the deployment command. 
 The deployment descriptor contains all the information that Oakestra needs in order to achieve a complete
@@ -212,7 +220,7 @@ This is a detailed description of the deployment descriptor fields currently imp
               ]
     ```
  
-## Login
+### Login
 After running a cluster you can use the debug OpenAPI page to interact with the apis and use the infrastructure
 
 connect to `<root_orch_ip>:10000/api/docs`
@@ -229,7 +237,7 @@ Authenticate using the following procedure:
 ![auth-login](res/authorize.png)
 ![auth2-login](res/authorize-2.png)
 
-## Register an application and the services
+### Register an application and the services
 After you authenticate with the login function, you can try out to deploy the first application. 
 
 1. Upload the deployment description to the system. You can try using the deployment descriptor above.
@@ -239,33 +247,29 @@ The response contains the Application id and the id for all the application's se
 
 You can always remove or create a new service for the application using the /api/services endpoints
 
-## Deploy an instance of a registered service 
+### Deploy an instance of a registered service 
 
 1. Trigger a deployment of a service's instance using `POST /api/service/{serviceid}/instance`
 
 each call to this endpoint generates a new instance of the service
 
-## Monitor the service status
+### Monitor the service status
 
-1. With `GET /api/aplications/<userid>` (or simply /api/aplications/ if you're admin) you can check the list of the deployed application.
+1. With `GET /api/aplications/<userid>` (or/api/aplications/ if you're admin) you can check the list of the deployed application.
 2. With `GET /api/services/<appid>` you can check the services attached to an application
 3. With `GET /api/service/<serviceid>` you can check the status for all the instances of <serviceid>
 
-## Undeploy 
+### Undeploy 
 
 - Use `DELETE /api/service/<serviceid>` to delete all the instances of a service
 - Use `DELETE /api/service/<serviceid>/instance/<instance number>` to delete a specific instance of a service
 - Use `DELETE /api/application/<appid>` to delete all together an application with all the services and instances
 
-# Networking 
+## Networking 
 
-To enable the communication between services: 
+Please see [Oakestra Net Artficat Repository](https://github.com/oakestra/USENIX-ATC23-Oakestra-net-Artifacts) for setting up networking.
 
-Ensure that each worker node has the [OakestraNet/Node_net_manager](https://github.com/oakestra/oakestra-net/tree/main/node-net-manager) component installed, up and running before running the node engine. 
+## Frontend?
 
-You can use declare a custom IP Address that uses Round Robin policy. Just declare it using the rr_ip field in the deployment descriptor 
-
-# Frontend?
-
-To make your life easire you can run the Oakestra front-end.
-Check the [Dashboard](https://github.com/oakestra/dashboard) repository for further info.
+To make your life easier you can run the Oakestra front-end.
+Please check the [Dashboard](https://github.com/oakestra/dashboard) repository for more information.
