@@ -43,8 +43,8 @@ We have created a detailed `README` and `getting-started` guide that provides st
 > The rest of the repository will detail how to set up the Oakestra orchestrators. You can just follow these steps or take a look at our README file for instructions.
 
 ### Q. I just want to try out Oakestra. Should I continue with this repo?
-
 This repository is recreating our USENIX ATC artifacts and is, therefore, out-of-sync of the main Oakestra development. Please see the `main` [Oakestra](https://github.com/oakestra/oakestra) for latest features.
+
 ---
 
 ## Create a development cluster
