@@ -2,7 +2,8 @@
 
 [![](https://img.shields.io/badge/USENIX%20ATC%20'23-paper-limegreen)](https://www.oakestra.io/pubs/Oakestra-ATC2023.pdf)
 
-# Oakestra USENIX ATC 2023 Artifacts - Orchestrator Repository
+# Oakestra USENIX ATC 2023 Artifacts 
+## Orchestrator Repository
 
 This repository contains the artifacts for the paper:
 
