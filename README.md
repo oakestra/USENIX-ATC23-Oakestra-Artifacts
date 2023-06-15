@@ -46,7 +46,7 @@ There are a total of three artifact repositories for reproducing the experiments
 
 A. We have created a detailed `README` and `getting-started` guide that provides step-by-step instructions which you can find [here](https://github.com/oakestra/USENIX-ATC23-Oakestra-Artifacts/blob/main/Experiments/README.pdf).
 
-> The rest of the repository will detail how to set up the Oakestra orchestrators. You can just follow these steps or take a look at our README file for instructions.
+> We also provide a fully functional VM (OakestraVM.vmdk) with a single cluster and single node deployment of Oakestra. You can find the VM and all other artifacts [here](https://bit.ly/oakestra-artifacts).
 
 ### Q. I just want to try out Oakestra. Should I continue with this repo?
 
@@ -62,7 +62,7 @@ We will first create a development cluster in your infrastructure.
 
 ### Deploy a Root Orchestrator 
 
-On a Linux machine with public IP address or DNS name, first install Docker and Docker-compose. Then, run the following commands to set up the Root Orchestrator components. 
+On a Linux machine with a public IP address or DNS name, first, install Docker and Docker-compose. Then, run the following commands to set up the Root Orchestrator components. 
 
 ```bash
 cd root_orchestrator/
