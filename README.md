@@ -290,6 +290,4 @@ Please see [Oakestra Net Artficat Repository](https://github.com/oakestra/USENIX
 To make your life easier you can run the Oakestra front-end.
 Please check the [Dashboard](https://github.com/oakestra/dashboard) repository for more information.
 
-# Beyond the paper
-
 
